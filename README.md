@@ -6,6 +6,7 @@ This is a ready to use Docker boilerplate for running Symfony 5 with Docker cont
 - PHP 8.0 (`php:8.0-fpm`)
 - MySQL 8 (`mysql:8`)
 - Symfony 5
+- Xdebug 3
 
 ### How to use
 - Clone the repository
