@@ -7,6 +7,7 @@ This is a ready to use Docker boilerplate for running Symfony 5 with Docker cont
 - MySQL 8 (`mysql:8`)
 - Symfony 5
 - Xdebug 3
+- PHPUnit 9.4
 
 ### How to use
 - Clone the repository
