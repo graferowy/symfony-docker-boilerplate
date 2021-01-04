@@ -1,1 +1,4 @@
+./.git
 ./app/vendor
+./app/bin/.phpunit
+./app/var/cache
