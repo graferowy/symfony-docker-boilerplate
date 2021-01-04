@@ -21,6 +21,8 @@ services:
       context: .
       dockerfile: ./build/php/Dockerfile
     restart: on-failure
+    environment:
+      PHP_IDE_CONFIG: serverName=docker-server
     volumes:
       - ./app:/var/www/symfony
     networks:

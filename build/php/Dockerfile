@@ -2,6 +2,8 @@ FROM php:8.0-fpm
 
 COPY ./build/php/php.ini /usr/local/etc/php/conf.d/docker-php-config.ini
 
+COPY ./build/php/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
+
 RUN apt-get update && apt-get install -y
 
 RUN apt-get update && apt-get install -y \
@@ -12,7 +14,9 @@ RUN apt-get update && apt-get install -y \
     libzip-dev \
     libxslt1-dev \
     libpng-dev \
-    libonig-dev
+    libonig-dev \
+    && pecl install xdebug \
+    && docker-php-ext-enable xdebug
 
 RUN docker-php-ext-install \
     pdo pdo_mysql zip xsl gd intl mbstring
@@ -23,3 +27,5 @@ RUN curl -sS https://get.symfony.com/cli/installer | bash
 RUN mv /root/.symfony/bin/symfony /usr/local/bin/symfony
 
 WORKDIR /var/www/symfony
+
+EXPOSE 9003
