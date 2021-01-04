@@ -4,6 +4,8 @@ COPY ./build/php/php.ini /usr/local/etc/php/conf.d/docker-php-config.ini
 
 COPY ./build/php/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 
+COPY ./app /var/www/symfony
+
 RUN apt-get update && apt-get install -y
 
 RUN apt-get update && apt-get install -y \
@@ -27,5 +29,7 @@ RUN curl -sS https://get.symfony.com/cli/installer | bash
 RUN mv /root/.symfony/bin/symfony /usr/local/bin/symfony
 
 WORKDIR /var/www/symfony
+
+RUN composer install
 
 EXPOSE 9003
